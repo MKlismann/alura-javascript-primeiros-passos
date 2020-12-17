@@ -1,50 +1,52 @@
-console.log(`Trabalhando com Loops`);
+/*
+    OBJETIVOS DA AULA:
+        - Demonstrar como trabalhar com laços de repetição.
+        - OBS: Imagine o seguinte contexto:
+            - Queremos vender uma passagem para uma das cidades listadas.
+            - Só podemos vender uma passagem para quem for maior de idade, ou se estiver acompanhado por um responsável.
+*/
 
-const listaDeDestinos = new Array(
+const tituloAula = "Trabalhando com Laços de Repetição";
+console.log(tituloAula);
+
+const listaDeCidades = new Array(
     `Salvador`,
     `São Paulo`,
     `Rio de Janeiro`
 );
+console.log(`Lista de cidades disponíveis: ${listaDeCidades}`);
+
+
 
 const idadeComprador = 17;
-const estaAcompanhada = false;
-let temPassagemComprada = false;
-const destino = "Salvafdor";
+const estaAcompanhado = false;
+const podeComprarPassagem = idadeComprador >= 18 || estaAcompanhado;
+const destinoDesejado = "São Paulo";
+let passagemDisponivel = false;
+let passagemComprada = false;
 
-console.log("Destinos possíveis:");
-console.log(listaDeDestinos);
+for (let index = 0; index < listaDeCidades.length; index++) {
 
-const podeComprar = idadeComprador >= 18 || estaAcompanhada;
-let destinoExiste = false;
-
-let contador = 0;
-// while (contador < listaDeDestinos.length){
-//     if(listaDeDestinos[contador] == destino){
-//         destinoExiste = true;
-//         break;
-//     }
-//     contador++;
-// }
-
-for (let index = 0; index < listaDeDestinos.length; index++) {
-    
-    if(listaDeDestinos[index] == destino){
-        destinoExiste = true;
+    if (listaDeCidades[index] == destinoDesejado) {
+        passagemDisponivel = true;
         break;
     }
 }
 
-if(!destinoExiste){
-    console.log("Destino indisponível");
+if (!passagemDisponivel) {
+    console.log("Destino indisponível.");
 }
-else if (podeComprar && destinoExiste) {
-    console.log("Boa viagem");
-    listaDeDestinos.splice(1, 1);
-    temPassagemComprada = true;
+else if (podeComprarPassagem && passagemDisponivel) {
+    const passagemPara = listaDeCidades.splice(1, 1);
+    passagemComprada = true;
+    console.log(`Passagem vendida para ${passagemPara}`);
 }
 else {
-    console.log("Comprador menor de idade e não está acomanhado; não posso vender");
+    console.log("O comprador é menor de idade e não está acompanhado; venda não permitida.");
 }
 
-console.log("Destinos possíveis atualizados:");
-console.log(listaDeDestinos);
+if (passagemComprada) {
+    console.log("Boa viagem!!!");
+}
+
+console.log(`Lista de cidades disponíveis: ${listaDeCidades}`);

@@ -1,25 +1,30 @@
-console.log(`Trabalhando com Condicionais`);
+/*
+    OBJETIVOS DA AULA:
+        - Demonstrar como trabalhar com expressões condicionais.
+        - OBS: Imagine o seguinte contexto:
+            - Queremos vender uma passagem para uma das cidades listadas.
+            - Só podemos vender uma passagem para quem for maior de idade, ou se estiver acompanhado por um responsável.
+*/
 
-const listaDeDestinos = new Array(
+const tituloAula = "Trabalhando com Condicionais";
+console.log(tituloAula);
+
+const listaDeCidades = new Array(
     `Salvador`,
     `São Paulo`,
     `Rio de Janeiro`
 );
+console.log(`Lista de cidades disponíveis: ${listaDeCidades}`);
 
 const idadeComprador = 17;
-const estaAcompanhada = true;
+const estaAcompanhado = true;
 
-console.log("Destinos possíveis:");
-console.log(listaDeDestinos);
-
-if (idadeComprador >= 18 ||
-    estaAcompanhada) {
-    console.log("Boa viagem");
-    listaDeDestinos.splice(1, 1);
+if (idadeComprador >= 18 || estaAcompanhado) {
+    const passagemPara = listaDeCidades.splice(1, 1);
+    console.log(`Passagem vendida para ${passagemPara}`);
 }
 else {
-    console.log("Comprador menor de idade e não está acomanhado; não posso vender");
+    console.log("O comprador é menor de idade e não está acompanhado; venda não permitida.");
 }
 
-console.log("Destinos possíveis atualizados:");
-console.log(listaDeDestinos);
+console.log(`Lista de cidades disponíveis: ${listaDeCidades}`);

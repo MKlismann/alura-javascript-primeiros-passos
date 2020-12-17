@@ -1,20 +1,28 @@
-console.log(`Trabalhando com Listas`);
+/*
+    OBJETIVOS DA AULA:
+        - Demonstrar como trabalhar com listas.
+*/
 
-const listaDeDestinos = new Array(
+const tituloAula = "Trabalhando com Listas";
+console.log(tituloAula);
+
+//Array é um novo tipo de dados, que pode receber uma lista de valores.
+const listaDeCidades = new Array(
     `Salvador`,
     `São Paulo`,
     `Rio de Janeiro`
 );
 
-console.log(listaDeDestinos);
+console.log(listaDeCidades);
 
-listaDeDestinos.push(`Belo Horizonte`);
+//Para incluir um item na lista.
+listaDeCidades.push(`Belo Horizonte`);
+console.log(listaDeCidades);
 
-console.log(listaDeDestinos);
+//Para retirar um elemento de uma posição definida na lista (posição, quantidade de elementos retirados)
+const elementoRetirado = listaDeCidades.splice(1, 1)
+console.log(`Elemento retirado: ${elementoRetirado}`);
+console.log(listaDeCidades);
 
-const retiradoSaoPaulo = listaDeDestinos.splice(1, 1)
-console.log(`Retirado: ${retiradoSaoPaulo}`);
-
-console.log(listaDeDestinos);
-
-console.log(listaDeDestinos[0]);
+//Para exibir um elemento definido em uma posição na lista
+console.log(listaDeCidades[1]);
